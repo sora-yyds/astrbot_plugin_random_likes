@@ -1,0 +1,14 @@
+# AstrBot Random Likes Plugin Configuration Example
+# 配置文件示例 - 实际配置由插件自动生成和管理
+
+# 点赞数量范围设置
+min_likes: 1      # 最小点赞数量
+max_likes: 100    # 最大点赞数量
+
+# 插件功能开关
+enabled: true     # 是否启用插件功能
+
+# 高级设置 (可选)
+# quick_like_max: 50    # 关键词触发的最大点赞数
+# admin_only: false     # 是否仅管理员可用
+# cooldown: 0           # 指令冷却时间(秒)

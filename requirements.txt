@@ -1,0 +1,11 @@
+# AstrBot Random Likes Plugin Dependencies
+# 本插件使用Python标准库，无额外依赖
+
+# 如果需要网络请求功能，可以添加：
+# aiohttp>=3.8.0
+
+# 如果需要数据处理功能，可以添加：
+# pandas>=1.5.0
+
+# 如果需要图像处理功能，可以添加：
+# Pillow>=9.0.0
