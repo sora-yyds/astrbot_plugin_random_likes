@@ -157,6 +157,12 @@ class RandomLikesPlugin(Star):
         
         # 检查消息中是否包含点赞相关关键词
         message_text = event.message_str.lower()
+        
+        # 排除命令消息 - 包括带/的命令和私聊中不带/的命令
+        if message_text.startswith('/点赞') or message_text == '点赞状态' or message_text == '点赞统计' or \
+           message_text.startswith('点赞状态') or message_text.startswith('点赞统计'):
+            return
+            
         if not any(keyword in message_text for keyword in ["点赞"]):
             return
         
@@ -168,7 +174,6 @@ class RandomLikesPlugin(Star):
         # 检查今天是否已经点过赞
         if self.is_user_liked_today(user_id):
             yield event.plain_result("今天已经给你点过赞了哦，明天再来吧~")
-            yield event.re
             return
             
         likes = random.randint(1, 10)
