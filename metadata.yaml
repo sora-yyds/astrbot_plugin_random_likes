@@ -1,5 +1,5 @@
 name: astrbot_plugin_random_likes # 这是你的插件的唯一识别名。
-desc: 随机点赞数量插件。 # 插件简短描述
+desc: 智能检测点赞关键词并自动随机点赞数 # 插件简短描述
 version: v1.0 # 插件版本号。格式：v1.1.1 或者 v1.1
 author: --sora-- # 作者
 repo: https://github.com/sora-yyds/astrbot_plugin_random_likes # 插件的仓库地址
