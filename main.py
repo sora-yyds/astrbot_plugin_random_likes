@@ -65,7 +65,7 @@ class RandomLikesPlugin(Star):
         except ValueError:
             yield event.plain_result("❌ 请输入有效的数字")
 
-    @filter.keyword(["点赞", "👍", "赞"])
+    @filter.regex(r".*(点赞|👍|赞).*")
     async def keyword_like(self, event: AstrMessageEvent):
         """关键词触发快速点赞"""
         if not self.config.get("enabled", True):

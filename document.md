@@ -106,14 +106,6 @@ async def handler_with_args(self, event: AstrMessageEvent):
 
 ### 消息过滤器
 
-#### 关键词过滤
-```python
-@filter.keyword(["关键词1", "关键词2"])
-async def keyword_handler(self, event: AstrMessageEvent):
-    """关键词触发处理"""
-    yield event.plain_result("检测到关键词")
-```
-
 #### 正则表达式过滤
 ```python
 @filter.regex(r"正则表达式")
@@ -123,13 +115,12 @@ async def regex_handler(self, event: AstrMessageEvent):
     yield event.plain_result(f"匹配结果: {match.group()}")
 ```
 
-#### 前缀过滤
+#### 关键词匹配（使用正则表达式实现）
 ```python
-@filter.prefix("前缀")
-async def prefix_handler(self, event: AstrMessageEvent):
-    """前缀匹配处理"""
-    content = event.message_str[len("前缀"):].strip()
-    yield event.plain_result(f"去除前缀后: {content}")
+@filter.regex(r".*(?:关键词1|关键词2).*")
+async def keyword_handler(self, event: AstrMessageEvent):
+    """关键词触发处理"""
+    yield event.plain_result("检测到关键词")
 ```
 
 ## 消息组件
@@ -361,7 +352,7 @@ class RandomLikesPlugin(Star):
         except ValueError:
             yield event.plain_result("请输入有效的数字")
     
-    @filter.keyword(["点赞", "👍"])
+    @filter.regex(r".*(?:点赞|👍).*")
     async def keyword_like(self, event: AstrMessageEvent):
         """关键词触发点赞"""
         likes = random.randint(1, 50)
